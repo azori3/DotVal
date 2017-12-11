@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Knowledgebase, Documentation Website HTML5 Template">
+    <meta name="keywords" content="Knowledgebase, Knowledgebase, multipurpose, onepage, Documenter, responsive">
+    <meta name="author" content="Themeix">
+    <title>@ViewBag.Title - My ASP.NET</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- Font-Awesome CSS -->
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <!--Animate CSS -->
+    <link rel="stylesheet" href="~/Content/animate.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="~/Content/owl.carousel.min.css">
+    <!-- Mean Menu CSS -->
+    <link rel="stylesheet" href="~/Content/meanmenu.min.css">
+    <!-- Main Stylesheet -->
+    <link href="~/Content/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="~/Content/responsive.css" rel="stylesheet">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;sensor=true&amp;key=AIzaSyD-G2b_ZFECWki-NM11LgrpM1VIxOnFNSc"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <!-- Start Header -->
+    <header>
+        <!-- Start Mainmenu -->
+        <div class="menu-area navbar-fixed-top ">
+            <div class="container">
+                <div class="row">
+                    <div class="mainmenu-wrapper">
+                        <!-- Start Header Logo -->
+                        <div class="col-xs-12 col-md-3">
+                            <div class="header-logo">
+                                <a href="index.html"><img src="~/Content/images/logo2.png" alt="logo" style="width:500px;height:500px"></a>
+                            </div>
+                        </div>
+                        <!-- End Header Logo -->
+                        <!-- Start Navigation -->
+                        <div class="col-xs-12 col-md-9">
+                            <div class="mainmenu">
+                                <div class="navbar navbar-right">
+                                    <div class="navbar-header visible-xs">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                    <div class="collapse navbar-collapse top-menu">
+                                        <nav>
+                                            <ul class="nav navbar-nav">
+                                                <li>
+                                                    <a href="#">Accueil<span>Get everything</span></a>
+                                                    <ul class="dropdown">
+                                                        <li><a href="@Url.Action("Index", "Action")">Gerer les actions</a></li>
+                                                        <li><a href="@Url.Action("Accueil", "Action")">Voir tout les actions</a></li>
+                                                        <li><a href="index-2.html">Ajouter Une Action</a></li>
+
+                                                    </ul>
+
+                                                </li>
+                                                <li><a href="about-us.html">Jobs<span>Know about us</span></a></li>
+                                                <li>
+                                                    <a href="questions.html">Forums<span>Ask Your Question</span></a>
+                                                    <ul class="dropdown">
+                                                        <li>
+                                                            <a href="questions.html"> <span><i class="fa fa-question-circle"></i></span>All Questions</a>
+                                                        </li>
+                                                        <li><a href="ask-question.html"><span><i class="fa  fa-question-circle-o"></i></span>Ask Questions</a></li>
+                                                        <li><a href="answers.html"><span><i class="fa fa-reply-all"></i></span>Answers</a></li>
+                                                        <li><a href="User/Login"><span><i class="fa fa-sign-in"></i></span>Login</a></li>
+                                                        <li><a href="register.html"><span><i class="fa fa-registered"></i></span>Register</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Reclamations<span> Show and add </span></a>
+                                                    <ul class="dropdown">
+                                                        <li><a href="index-2.html">Liste des reclamations</a></li>
+                                                        <li><a href="index-2.html">Ajouter une reclamation</a></li>
+
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Navigation -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Mainmenu -->
+        <!-- Start Mobile Menu Area -->
+        <div class="col-xs-12 visible-xs">
+            <div class="mobile-menu">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="index.html">Home</a>
+                            <ul>
+                                <li><a href="index.html">Home Version 1</a></li>
+                                <li class="active"><a href="index-2.html">Home Version 2</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about-us.html">About</a></li>
+                        <li>
+                            <a href="#">Questions</a>
+                            <ul>
+                                <li><a href="questions.html"> Questions</a></li>
+                                <li><a href="ask-question.html">Ask Questions</a></li>
+                                <li><a href="answers.html">Answers</a></li>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="register.html">Register</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Pages</a>
+                            <ul>
+                                <li><a href="index-2.html">Home 2</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog-details.html">Blog Details</a></li>
+                                <li><a href="questions.html">Questions</a></li>
+                                <li><a href="answers.html">Answers</a></li>
+                                <li><a href="updates.html">Updates</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="left-sidebar.html">Left Sidebar</a></li>
+                                <li><a href="right-sidebar.html">Right Sidebar</a></li>
+                                <li><a href="login.html">login</a></li>
+                                <li><a href="register.html">Register</a></li>
+                                <li><a href="404.html">404</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="updates.html">Updates</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- End MObile Menu Area -->
+    </header>
+    <!-- End Header -->
+
+    @RenderBody()
+    <hr />
+    <!-- Start Footer Area -->
+    <footer>
+        <div class="footer-area themeix-ptb">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-wrapper">
+                        <div class="col-sm-6 col-md-3">
+                            <div class="single-footer">
+                                <h3 class="footer-heading">About Us</h3>
+                                <div class="single-footer-text">
+                                    <p>Vestibulum quis cursus mi, vitae mollis metus.Nulam eu lects gravida, bibendum enim in, vulputate erat. Vestibulum ullamcorper ornare magna</p>
+                                </div>
+                                <div class="social-links">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li class="fb-link"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li class="gp-link"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="single-footer">
+                                <h3 class="footer-heading">Recent Products</h3>
+                                <div class="footer-list">
+                                    <ul>
+                                        <li><a target="_blank" href="https://themeforest.net/item/hostix-responsive-parallax-hosting-website-html5-template/19747783">Hostix</a></li>
+                                        <li><a target="_blank" href="https://themeforest.net/item/cleanhost-responsive-web-hosting-html5-template/19950579">Cleanhost</a></li>
+                                        <li><a target="_blank" href="https://themeforest.net/item/law-firm-lawyer-business-psd-template/19906137">Law Firm</a></li>
+                                        <li><a target="_blank" href="https://themeforest.net/item/etube-video-blog-site-psd-template/19821837">eTube</a></li>
+                                        <li><a href="#">Documenter</a></li>
+                                        <li><a href="#">Spa Care</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="single-footer">
+                                <h3 class="footer-heading">get support</h3>
+                                <div class="footer-list">
+                                    <ul>
+                                        <li><a href="#">Our Forum</a></li>
+                                        <li><a href="#">Facebook Page</a></li>
+                                        <li><a href="#">Live Chat</a></li>
+                                        <li><a href="#">Toll Free Number</a></li>
+                                        <li><a href="#">Support Agent</a></li>
+                                        <li><a href="#">Tickets</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="single-footer">
+                                <h3 class="footer-heading">get support</h3>
+                                <p>Don’t miss our latest realeses and important updates</p>
+                                <div class="subscribe-form">
+                                    <form action="#">
+                                        <input type="email" name="subscribe" id="subscribe" class="form-control" placeholder="Email" required>
+                                        <button type="submit" class="hover-bg">Go</button>
+                                    </form>
+                                    <span>We never do spam with you</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-bottom-area themeix-pb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="footer-bottom">
+                            <div class="footer-logo">
+                                <a href="#"><img src="~/Content/images/footer-logo.png" alt="logo"></a>
+                            </div>
+                            <div class="footer-links">
+                                <ul>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Refund Policy</a></li>
+                                    <li><a href="#">Disclaimer</a></li>
+                                </ul>
+                            </div>
+                            <div class="copyright-text">
+                                <p>All content Documenter &copy; 2017 - All rights reserved. - Proudly made with <a href="http://designingmarket.com">Designing Market</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+        <!-- Start Scroll To Top -->
+        <div class="scroll-top">
+            <div class="scroll-icon">
+                <i class="fa fa-angle-up"></i>
+            </div>
+        </div>
+        <!-- End Scroll To Top -->
+    </footer>
+    <!-- End Footer Area -->
+
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.easing.js"></script>
+    <script src="~/Scripts/particles.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/jquery.meanmenu.js"></script>
+    <script src="~/Scripts/main.js"></script>
+
+</body>
+</html>
