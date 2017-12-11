@@ -1,0 +1,80 @@
+﻿@model Webapp.Models.ActionModel
+@{
+    ViewBag.Title = "ActionDisplay";
+
+
+
+}
+<style>
+    #map {
+        height: 400px;
+        width: 50%;
+    }
+</style>
+
+<script src="~/Content/wow.min.js"></script>
+<script>
+              new WOW().init();
+</script>
+
+<script>
+
+    function initMap() {
+        var z ='@Model.lat';
+
+        var uluru = { lat: parseFloat('@Model.lat'), lng: parseFloat('@Model.lag') };
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBF9XqPyJIOxouqvQ3Qso9m_0swAQAOQpo&callback=initMap">
+</script>
+
+
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.11&appId=1337156363031605';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="container" style="margin-top:8%">
+ <p style="font-family:Arial;color:darkblue;font-size:large">Titre: @Model.titreAction</p>
+<img src="~/Content/images/imga.png" style="width:300px;height:300px" />
+<p style="font-family:Arial"> Date debut: @Model.dateDebutAction.ToString()</p>
+<p style="font-family:Arial">Date Fin: @Model.dateFinAction.ToString()</p>    
+<p style="font-family:Arial">Description : @Model.discriptionAction</p>
+    <h3>Localisation de l'action</h3>
+    <div id="map"></div>
+
+
+
+    <p style="font-family:Arial;color:darkorange;font-size:medium;">Partagez sur Facebook :</p> <br />
+    <div class="fb-like" data-href="https://www.givingway.com" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+    <hr />
+    
+        <h2> Annexe video</h2>
+        <div style="display:inline-flex">
+            <div >
+            <iframe width="300" height="300"  src="https://www.youtube.com/embed/q4je9N26ouY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+               </div>
+            <div style="margin-left:15%">
+                <iframe width="300" height="300" src="https://www.youtube.com/embed/adgTRvUJ_XI" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div style="margin-left:17%">
+                <iframe width="300" height="300" src="https://www.youtube.com/embed/6w9TxnwVF5o" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    
+     
+

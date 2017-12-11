@@ -1,0 +1,37 @@
+﻿@model Webapp.Models.ActionModel
+@{
+    ViewBag.Title = "Index";
+    var actions = (List<Domain.Entities.action>)ViewData["listAction"];
+
+}
+
+<script src="~/Content/wow.min.js"></script>
+<script>
+              new WOW().init();
+</script>
+<h1 class="wow  bounceInUp container" style="margin-top:5%"> Les  Actions : </h1>
+
+<div class="wow bounceInUp container" style="display:inline-flex;flex-wrap:wrap; margin-left:150px;
+	width:90%">
+    
+    @foreach (var f in actions)
+    {
+
+        <div class="container" style="flex-basis:30%">
+            <p style="font-family:Arial;color:darkblue;font-size:large">@f.titreAction</p>
+
+            @*<img src="~/Content/images/imga.png"/>*@
+            <img class="card-img-top img-fluid w-100" style="width:250px;height:200px" src=@Url.Content("~/Content/Upload/"+f.imageAction)>
+            
+            <p> Date Debut : @f.dateDebutAction</p>
+
+            <p style="font-family:Arial"> Date Fin : @f.dateFinAction</p>
+            @Html.ActionLink("Consulter", "DisplaySingle", "Action", new { id = f.idAction }, new { @class = "btn btn-primary" })
+            <br />
+            <br />
+        </div>
+
+    }
+</div>
+<hr class="about-us-bg" style="width:90%" />
+<br />
