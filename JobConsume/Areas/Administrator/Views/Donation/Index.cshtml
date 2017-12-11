@@ -1,0 +1,81 @@
+﻿@model IEnumerable<volunteer.domaine.entities.donation>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_adminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@*<div class="col-lg-16 col-lg-offset-16">
+    <p>
+        @Html.ActionLink("Give a Don", "Create")
+    </p>
+</div>*@
+<header id="portfolio">
+    <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+        <h1><b>List of Don</b></h1>
+        <div class="w3-section w3-bottombar w3-padding-16">
+            <span class="w3-margin-right">Sort results by:</span>
+            <button class="w3-button w3-black">Don</button>
+            <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>topic</button>
+            <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Action</button>
+            <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>Job</button>
+        </div>
+    </div>
+</header>
+
+
+
+    <div class="col-sm-8 col-md-9">
+        <div class="sort-by-section clearfix">
+            <h4 class="sort-by-title block-sm">Sort results by:</h4>
+            <ul class="sort-bar clearfix block-sm">
+                <li class="sort-by-name"><a class="sort-by-container" href="../Donation/sortedPrice"><span>Date</span></a></li>
+                <li class="sort-by-price"><a class="sort-by-container" href="../Donation/DonateDispo"><span>Get Disponible Don</span></a></li>
+
+
+            </ul>
+
+
+        </div>
+    </div>
+
+
+    @foreach (var item in Model)
+    {
+        <div class="w3-half">
+
+            <article class="box">
+                <figure>
+                    <a href="#" title=""><img src=@Url.Content("~/Content/Upload/"+@Html.DisplayFor(modelItem => item.image)) alt="Norway" style="width:100%;height:auto" class="w3-hover-opacity">   </a>
+                </figure>
+                <div class="w3-container w3-white">
+                    <h4>@Html.DisplayFor(modelItem => item.TitreDonation)</h4>
+                    <p> DonationType : @Html.DisplayFor(modelItem => item.TypeDonation)</p>
+                    <p> DonationAdress: @Html.DisplayFor(modelItem => item.lieuDonation) </p>
+                    <p>DateAdd:@Html.DisplayFor(modelItem => item.dateajout)</p>
+                    <p>Disponibilité:@Html.DisplayFor(modelItem => item.disponibilite)</p>
+
+                   
+                    @Html.ActionLink("Show don", "Details", new { id = item.id }) 
+                   
+                </div>
+            </article>
+        </div>
+
+    }
+
+    <div class="col-lg-4 col-lg-offset-4">
+        <div class="w3-bar">
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+            <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+        </div>
+    </div>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<JobConsume.Models.job>
+@{
+    ViewBag.Title = "Index";
+}   
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+   <meta name="viewport" content="width=device-width"/>
+    <link href="~/Content/main.css" rel="stylesheet" type="text/css"/>
+<title></title>
+
+</head>
+
+<body>
+    <div>
+        @{
+        var grid = new WebGrid(source: Model, canPage: true, rowsPerPage: 10);
+        grid.Pager(WebGridPagerModes.All);
+    }
+
+</div>  
+
+    <a href="@Url.Action("Create","Employe")">Hy MOther fucker</a>
+    <div class="table-wrapper">
+        <table cellpadding="2" cellspacing="2" border="1">
+
+            <tr>
+                <th>Id </th>
+                <th>contenuNom </th>
+                <th>local </th>
+                <th>date</th>
+            </tr>
+            @foreach (var p in ViewBag.result)
+            {
+                <tr>
+
+                    <td>@p.id</td>
+                    <td>@p.adresseJob</td>
+                    <td>@p.contenutJob</td>
+                    <td>@p.indexationJob</td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>
+

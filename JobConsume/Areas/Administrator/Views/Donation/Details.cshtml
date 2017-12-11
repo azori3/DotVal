@@ -1,0 +1,44 @@
+﻿@model JobConsume.Models.DonationMvc
+@Html.Raw(TempData["msg"])
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_adminLayout.cshtml";
+}
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="row image-box style6">
+
+    <article class="box">
+        <figure>
+            <a><img src=@Url.Content("~/Content/Upload/"+@Html.DisplayFor(model => model.image)) alt="" width="270" height="192"></a>
+        </figure>
+        <div class="details">
+            <h4>@Html.DisplayFor(model => model.TitreDonation)</h4>
+            <p> DonationAdress: @Html.DisplayFor(model => model.TypeDonation)</p>
+            <p> LocalDon : @Html.DisplayFor(model => model.lieuDonation) </p>
+            <p> EmailContact : @Html.DisplayFor(model => model.email) </p>
+            <p> DateAdd : @Html.DisplayFor(model => model.dateajout) </p>
+            <p> disponibility : @Html.DisplayFor(model => model.disponibilite) </p>
+        </div>
+ 
+
+
+    </article>
+
+</div>
+<div class="alert alert-help">
+    You can Book Right Now !!
+    <span class="close"></span>
+</div>
+
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.id }) |*@
+    @Html.ActionLink("Reserve this Don", "Confirm", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

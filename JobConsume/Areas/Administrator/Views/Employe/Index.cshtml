@@ -1,0 +1,80 @@
+﻿@model IEnumerable<JobConsume.Models.job>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_adminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<header id="portfolio">
+    <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+        <h1><b>List of Don</b></h1>
+        <div class="w3-section w3-bottombar w3-padding-16">
+            <span class="w3-margin-right">Sort results by:</span>
+            <button class="w3-button w3-black">Don</button>
+            <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>topic</button>
+            <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Action</button>
+            <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>Job</button>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+    <a href="@Url.Action("Create","Employe")">Create</a>
+    @*<div class="table-wrapper">
+        <table cellpadding="2" cellspacing="2" border="1">
+
+            <tr>
+                <th>Id </th>
+                <th>contenuNom </th>
+                <th>local </th>
+                <th>date</th>
+            </tr>
+            @foreach (var p in ViewBag.result)
+            {
+                <tr>
+
+                    <td>@p.id</td>
+                    <td>@p.adresseJob</td>
+                    <td>@p.contenutJob</td>
+                    <td>@p.indexationJob</td>
+                </tr>
+            }
+
+        </table>*@
+
+    @foreach (var p in ViewBag.result)
+    {
+      
+            <div class="w3-third w3-container w3-margin-bottom">
+
+                <article class="box">
+                    <figure>
+                        <a href="#" title=""><img src=@Url.Content("~/Content/Upload/JObtpc.jpg") alt="Norway" style="width:100%;height:auto" class="w3-hover-opacity">   </a>
+                    </figure>
+                    <div class="w3-container w3-white">
+                        <h4>@p.titre</h4>
+                        <p>Job Mission : @p.contenutJob</p>
+                        <p> DonationAdress:@p.indexationJob  </p>
+                        <p>DateAdd:@p.indexationJob</p>
+                        <p>Disponibilité:@p.adresseJob</p>
+
+
+
+
+                    </div>
+                </article>
+
+            </div>
+            
+    }
+
+       
+

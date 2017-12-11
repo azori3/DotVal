@@ -1,0 +1,40 @@
+﻿@model JobConsume.Models.DonationMvc
+
+<div>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <h4>donation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TitreDonation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TitreDonation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeDonation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeDonation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lieuDonation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lieuDonation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
