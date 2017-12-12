@@ -1,0 +1,273 @@
+﻿@*@model IEnumerable<VolunteersPidev.Domain.Entities.Comment>*@
+
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<VolunteersPidev.Domain.Entities.Comment>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TEST</title>
+    <link href="@Url.Content("~/Content/Style.css")" rel="stylesheet" type="text/css"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    @*<button id="btnShowModal" type="button"
+            class="btn btn-sm btn-default pull-left col-lg-11 button button4">
+        Satya Modals
+    </button>
+
+
+    <div class="modal fade" tabindex="-1" id="loginModal"
+         data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        ×
+                    </button>
+                    <h4 class="modal-title">Add new comment</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control" type="text"
+                                   placeholder="Your comment" id="inputUserName" />
+                        </div>
+                        <h2>Create</h2>
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+                                <h4>Comment</h4>
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.content, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.content, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>*@
+
+                                @*<div class="form-group">
+                    @Html.LabelFor(model => model.dateComment, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.dateComment, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.dateComment, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+                                @*<div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Create" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        <div>
+                            @Html.ActionLink("Back to List", "index")
+                        </div>
+                       
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary button button4">Sign</button>
+                    <button type="button" id="btnHideModal" class="btn btn-primary button button4">
+                        Hide
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+    @*<table class="table">
+            <tr>
+                <th>
+                   Content
+                </th>
+                <th>
+                    Date
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => p.content)<br />
+                        @Html.DisplayFor(modelItem => p.comment_like) likes<br />
+                        @Html.ActionLink("Like", "Like", new { id = p.id })
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => p.dateComment)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = p.id }) |
+                        @Html.ActionLink("Details", "Details", new { id = p.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = p.id })
+                    </td>
+                </tr>
+            }
+
+        </table>*@
+
+    @*@foreach (var p in Model)
+    {
+        <div class="container;" style="margin-top:50px;border-radius:50px;background-color:#eaeaea">
+            <div style="margin-left:50px">
+                @Html.DisplayFor(modelItem => p.content)
+            </div>
+
+
+
+            <div style="margin-left:900px"> @Html.DisplayFor(modelItem => p.dateComment)</div>
+            <div style="margin-left:50px">
+                @Html.DisplayFor(modelItem => p.comment_like)
+
+                @Html.ActionLink("Likes", "Like", new { id = p.id },new { @class = "fa fa-thumbs-up" })
+            </div>
+
+        </div>
+        <div style="margin-left:900px">
+            @Html.ActionLink("Edit", "Edit", new { id = p.id }) |
+            @Html.ActionLink("Details", "Details", new { id = p.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = p.id })<br />
+        </div>
+    }
+    <hr /><hr /><hr />*@
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="page-header">Comments</h2>
+
+                <div style="color:forestgreen" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-plus"> @Html.ActionLink("AddComment", "create")</i> </div>
+              <hr />
+
+                          <p style="font-family:'Comic Sans MS'; color:darkcyan">Number total of comments: @Html.Encode(ViewData["nbre"])</p>
+                <span style="color:#e5df29">
+                    <p class="glyphicon glyphicon-star" ></p>
+                    </span>
+                 <span  style="font-family:'Comic Sans MS'; color:darkcyan" >The average rating: @Html.Encode(ViewData["avg"]) / 5</span>
+                    @*@Html.Encode(ViewData["avg"])*@
+                    @Html.Encode(ViewData["error"])
+
+                @ViewBag.success
+                    @foreach (var p in Model)
+                    {
+                        <section class="comment-list">
+                            <!-- First Comment -->
+                            <article class="row">
+                                <div class="col-md-2 col-sm-2 hidden-xs">
+                                    <figure class="thumbnail">
+                                        <img class="img-responsive" src="https://graph.facebook.com/1958749884364942/picture?width=100&height=100" />
+                                        <figcaption class="text-center">Haroun</figcaption>
+                                    </figure>
+                                </div>
+                                <div class="col-md-10 col-sm-10">
+                                    <div class="panel panel-default arrow left">
+                                        <div class="panel-body">
+                                            <header class="text-left">
+                                                @*<div class="comment-user"><i class="fa fa-user"></i>@Html.DisplayFor(modelItem => p.users_id)</div>*@
+                                                <div class="comment-user"><i class="fa fa-user"></i> Haroun Gazzah</div>
+
+                                                <div class="comment-user">
+                                                    <span style="color:#e5df29">
+                                                        <p class="glyphicon glyphicon-star"></p>
+                                                    </span>Rate: @Html.DisplayFor(modelItem => p.note)/5
+                                                </div>
+                                                <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> @Html.DisplayFor(modelItem => p.dateComment)</time>
+                                            </header>
+                                            <div class="comment-post">
+                                                <p>
+                                                    @Html.DisplayFor(modelItem => p.content)
+                                                </p>
+                                                <p>
+
+                                                </p>
+                                                <hr />
+                                                <img src="~/Content/like.png" width="60px" height="30px" />
+                                                <span style="margin-left:-20px;color:cornflowerblue">
+                                                    @Html.DisplayFor(modelItem => p.comment_like)
+                                                </span>
+                                                <hr />
+                                            </div>
+
+
+                                            @*@Html.ActionLink(" Like", "Like", new { id = p.id }, new { @class = "btn btn-default btn-sm" })*@
+
+                                            @*<p class="text-right"><a href="#" class="btn"><i class="fa fa-thumbs-up"></i> </a>*@
+                                            @*@Html.ActionLink("Edit", "Edit", new { id = p.id }, new { @class = "btn btn-default btn-sm" })*@
+
+                                            <a href="@Url.Action("Like", new { id = p.id })" style="color:cornflowerblue" class="btn btn-default btn-sm">
+                                                <i class="glyphicon glyphicon-thumbs-up"></i>
+                                                <span>
+                                                    <strong>Like</strong>
+                                                </span>
+                                            </a>
+                                            @if (p.users_id == 3)
+                                            {
+
+
+                                                <a href="@Url.Action("Edit", "CommentWS", new { id = p.id })" style="color:forestgreen" class="btn btn-default btn-sm">
+                                                    <i class="glyphicon glyphicon-edit"></i>
+                                                    <span>
+                                                        <strong>Edit</strong>
+                                                    </span>
+                                                </a>
+
+                                                <a href="@Url.Action("Delete", "CommentWS", new { id = p.id })" onclick = "return confirm('Are you sure you want to Delete ?')" style="color:red" class="btn btn-default btn-sm">
+                                                    <i class="glyphicon glyphicon-trash"></i>
+                                                    <span>
+                                                        <strong>Delete</strong>
+                                                    </span>
+                                                </a>
+                                            }
+                                            @*@Html.ActionLink("Delete", "Delete", new { id = p.id })*@
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+                    }
+                    <center>
+                        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                        @Html.PagedListPager(Model, Page_No => Url.Action("Index", new { Page_No }))
+                    </center>
+</div>
+            </div>
+        </div>
+
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+
+    </script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#btnShowModal").click(function () {
+                $("#loginModal").modal('show');
+            });
+
+            $("#btnHideModal").click(function () {
+                $("#loginModal").modal('hide');
+            });
+        });
+    </script>  
+
+</body>
+</html>
