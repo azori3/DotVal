@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "getVol";
+}
+<h2>Index</h2>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="@Url.Content("~/Content/main.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/font-awesome.min.css")" rel="stylesheet" type="text/css" />
+    <title></title>
+
+</head>
+
+<body>
+    
+    <h3 style="margin-left:1050px;"><a href="@Url.Action("Logout", "User", null)">Logout</a></h3>
+    <h2><a href='@string.Format("/User/Index")'>Liste des utilisateurs</a></h2>
+    <h3 style="text-align:left;float:left;" ><a href='@string.Format("/User/Index")'>Volunteer</a></h3>
+    <h3 style="text-align:right;float:left; margin-left: 10px;color:brown"><a href='@string.Format("/User/getVol")'>Association</a></h3>
+    <h3 style="text-align:right;float:left; margin-left: 10px;"><a href='@string.Format("/User/ListReport")'>List Report</a></h3>
+        <hr style="clear:both;" />
+    <h4>Search Association</h4>
+    @using (Html.BeginForm("getVol", "User", FormMethod.Get))
+    {
+
+       
+
+
+        <div class="row uniform">
+            <div class="9u 12u$(small)" id="div1">
+                <input type="text" name="search" required />
+            </div>
+
+            <div class="3u$ 12u$(small)">
+                <input type="submit" value="Search" class="fit" />
+            </div>
+
+        </div>
+        <br />
+
+
+        <input type="radio" id="1" name="SearchBy" value="mail" checked="checked" />
+        <label for="1">Mail</label>
+        <input type="radio" id="2" name="SearchBy" value="organsationName" checked="checked" />
+            <label for="2">Organisation Name</label>
+
+
+    }
+    <div class="table-wrapper">
+        <h4>List of Association</h4>
+        <table cellpadding="2" cellspacing="2" border="1">
+
+          
+
+            @if (ViewBag.result != null)
+            {
+                <tr>
+                    <th>Id </th>
+                    <th>EMail </th>
+                    <th>organsationName </th>
+
+                    <th>Numero Telephone </th>
+                    <th>Address </th>
+
+
+                </tr>
+                foreach (var p in ViewBag.result)
+                {
+                <tr>
+
+                    <td>@p.id</td>
+                    <td>@p.mail</td>
+                    <td>@p.organsationName</td>
+                    <td>@p.numTel</td>
+                    <td>@p.address</td>
+
+                </tr>
+                }
+            }
+            @Html.Raw(ViewBag.msg1)
+
+
+        </table>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "ReportDetails";
+}
+<h2>ReportDetails</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Content/main.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/font-awesome.min.css")" rel="stylesheet" type="text/css" />
+   
+</head>
+<body>
+
+    <div style="margin:auto;text-align:center">
+
+        <h3 style="margin-left:1050px;"><a href="@Url.Action("Logout", "User", null)">Logout</a></h3>
+
+        <h2><a href='@string.Format("/User/Index")'>Liste des utilisateurs</a></h2>
+        <h3 style="text-align:left;float:left;color:brown"><a href='@string.Format("/User/Index")'>Volunteer</a></h3>
+        <h3 style="text-align:right;float:left; margin-left: 10px;"><a href='@string.Format("/User/getVol")'>Association</a></h3>
+        <h3 style="text-align:right;float:left; margin-left: 10px;"><a href='@string.Format("/User/ListReport")'>List Report</a></h3>
+        <h3 style="text-align:right;float:left; margin-left: 10px;"><a data-toggle="modal" data-target=".bd-example-modal-lg">Statistique</a></h3>
+
+        <hr style="clear:both;" />
+
+        <h3>Content</h3>
+        <div class="box">
+            @ViewBag.mail
+        </div>
+        <br />
+        <h3>Subject</h3>
+        <blockquote>@ViewBag.sujet </blockquote>
+        <br />
+        <h3>Date begin ban</h3>
+        <div class="box">
+            @ViewBag.DDB
+        </div>
+        <br />
+
+        <h3>Date Ending ban</h3>
+        <div class="box">
+            @ViewBag.DEB
+        </div>
+       
+
+        <a class="btn" href="@Url.Action("ExportPdf", "User", new { id=@ViewBag.id})">
+            <i class="glyphicon "></i> ExportPDF
+        </a>
+    </div>
+
+
+    <br />
+    <br />
+
+    <br />
+
+    <br />
+
+    <br />
+    <footer id="footer">
+        <div class="inner">
+
+            <h3>Get in touch</h3>
+
+
+
+
+            <div class="copyright">
+                &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

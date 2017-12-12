@@ -1,0 +1,43 @@
+﻿@model IEnumerable<webpidev.Models.Users>
+@{
+    ViewBag.Title = "users";
+}
+
+<h2>users</h2>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+</head>
+
+<body>
+    
+ 
+
+    <table cellpadding="2" cellspacing="2" border="1">
+
+        <tr>
+            <th>Id </th>
+            <th>contenuNom </th>
+            <th>local </th>
+            <th>date</th>
+        </tr>
+        @foreach (var p in ViewBag.result)
+        {
+            <tr>
+
+                <td>@p.id</td>
+                <td>@p.mail</td>
+                <td>@p.firstName</td>
+                <td>@p.DTYPE</td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

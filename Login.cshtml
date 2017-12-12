@@ -1,0 +1,88 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Content/main.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/font-awesome.min.css")" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/skel.min.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <br />
+    <br />
+    <!-- Form -->
+    <div style="margin:auto;width:50%;height:50%;text-align:center">
+        <h3>Login</h3>
+        <div class="box">
+            <p> Here you can login as administrator</p>
+        </div>
+
+
+        <form method="post" action="#">
+            <div class="row uniform">
+
+                <div class="6u$ 12u$(xsmall)">
+                    <input type="email" name="mail" id="demo-email" value="" placeholder="Email" />
+                </div>
+                <div class="6u 12u$(xsmall)">
+                    <input type="password" name="pass" id="demo-name" value="" placeholder="Password" />
+                </div>
+
+                <!-- Break -->
+
+                <div class="6u$ 12u$(small)">
+                    <input type="checkbox" id="demo-human" name="demo-human" checked>
+                    <label for="demo-human">I am a human and not a robot</label>
+                </div>
+                <!-- Break -->
+                <div class="12u$">
+                   
+                    <ul class="actions">
+
+                        <li><input type="submit" value="Connect" href="@Url.Action("Index", "User", null)" /></li>
+                        <li><input type="reset" value="Reset" class="alt" /></li>
+                    </ul>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <br />
+
+    <br />
+    <br />
+
+    <br />
+
+    <br />
+
+    <br />
+    <footer id="footer">
+        <div class="inner">
+
+            <h3>Get in touch</h3>
+
+      
+          
+
+            <div class="copyright">
+                &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+            </div>
+
+        </div>
+    </footer>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/skel.min.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/main.js"></script>
+</body>
+</html>

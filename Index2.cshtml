@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+
+<h2>Index2</h2>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="@Url.Content("~/Content/main.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/font-awesome.min.css")" rel="stylesheet" type="text/css" />
+    <title></title>
+
+</head>
+
+<body>
+
+    <h3><a href='@string.Format("/Asso/Index")'>Liste des utilisateurs</a></h3>
+
+
+    @using (Html.BeginForm("Index", "Asso", FormMethod.Get))
+    {
+
+        <input type="radio" name="Type" value="Volunteer" id="type1" />
+
+
+        <label for="type1">Volunteer</label>
+
+        <input type="radio" name="Type" value="Asso" id="type2" />
+
+
+        <label for="type2">Association</label>
+
+
+        <div class="row uniform">
+            <div class="9u 12u$(small)" id="div1">
+                <input type="text" name="search" required />
+            </div>
+
+            <div class="3u$ 12u$(small)">
+                <input type="submit" value="Search" class="fit" />
+            </div>
+
+        </div>
+        <br />
+
+       
+
+
+    }
+    <div class="table-wrapper">
+
+        <table cellpadding="2" cellspacing="2" border="1">
+
+            <tr>
+                <th>Id </th>
+                <th>EMail </th>
+                <th>organsationName </th>
+               
+                <th>Address </th>
+
+            </tr>
+
+
+            @foreach (var p in ViewBag.result)
+            {
+                <tr>
+
+                    <td>@p.id</td>
+                    <td>@p.mail</td>
+                    <td>@p.organsationName</td>
+                    
+                    <td>@p.address</td>
+
+                </tr>
+            }
+
+
+
+        </table>
+    </div>
+    
+
+</body>
+
+</html>

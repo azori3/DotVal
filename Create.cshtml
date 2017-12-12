@@ -1,131 +1,17 @@
-﻿@model Webapp.Models.ActionModel
-
+﻿
 @{
-    ViewBag.Title = "Create";
+    Layout = null;
 }
 
-<h2>Create</h2>
-@using (Html.BeginForm("Create", "Action", FormMethod.Post, new { enctype = "multipart/form-data", runat = "server" })) { 
+<!DOCTYPE html>
 
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>action</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.dateDebutAction, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.dateDebutAction, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.dateDebutAction, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.dateFinAction, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.dateFinAction, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.dateFinAction, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.discriptionAction, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.discriptionAction, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.discriptionAction, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.titreAction, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.titreAction, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.titreAction, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-
-            <div class="col-md-10">
-                @Html.TextBox("fa", null, new { type = "file" })
-                @Html.ValidationMessageFor(model => model.imageAction, "", new { @class = "text-danger" })
-            </div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-            <script>
-            window.onload = function () {
-                var mapOptions = {
-                    center: new google.maps.LatLng(36.8064948, 10.181531599999971),
-                    zoom: 5,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-                //Attach click event handler to the map.
-                google.maps.event.addListener(map, 'click', function (e) {
-
-                    //Determine the location where the user has clicked.
-                    var location = e.latLng;
-
-                    //Create a marker and placed it on the map.
-                    var marker = new google.maps.Marker({
-                        position: location,
-                        map: map,
-
-                    });
-                 document.getElementById("lat").value = marker.position.lat();
-                    document.getElementById("lag").value = marker.position.lng();
-                    //document.getElementById("state").value = marker.state;
-
-                    //Attach click event handler to the marker.
-                    google.maps.event.addListener(marker, "click", function (e) {
-                        var infoWindow = new google.maps.InfoWindow({
-                            content: 'Latitude: ' + location.lat() + '<br />Longitude: ' + location.lng()
-                        });
-                        infoWindow.open(map, marker);
-                    });
-                });
-            };
-            </script>
-            <div id="map" style="width: 400px; top: 68px; left: 172px;  height: 238px">
-
-            </div>
-
-            <style type="text/css">
-                #mapContainer {
-                    height: 500px;
-                    width: 800px;
-                    border: 10px solid #eaeaea;
-                }
-            </style>
-
-            <div class="form-group">
-                <div class="col-md-10">
-                   
-                    @Html.TextBoxFor(model => model.lat, new { htmlAttributes = new { @class = "form-control" } })
-
-
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.lag, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Add Action" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-}
-
-
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div> 
+    </div>
+</body>
+</html>

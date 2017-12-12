@@ -1,0 +1,32 @@
+﻿ @{
+     Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+ 
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Content/main.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/font-awesome.min.css")" rel="stylesheet" type="text/css" />
+    <title>BillChart</title>
+</head>
+<body>
+
+    <h3><a href='@string.Format("/User/Index")'>Liste des utilisateurs</a></h3>
+
+    <h3 style="text-align:left;float:left;"><a href='@string.Format("/User/Index")'>Volunteer</a></h3>
+    <h3 style="text-align:right;float:left; margin-left: 10px;"><a href='@string.Format("/User/getVol")'>Association</a></h3>
+    <h3 style="text-align:right;float:left; margin-left: 10px;"><a href='@string.Format("/User/ListReport")'>List Report</a></h3>
+    <h3 style="text-align:right;float:left; margin-left: 10px;color:brown"><a href='@string.Format("/User/BillChart")'>Statistique</a></h3>
+    <hr style="clear:both;" />
+
+    <h3>Box</h3>
+    <div  style="width:30px;height:30px;margin-left:750px">
+        <img src="@Url.Action("BillChart")" style="" />
+    </div>
+      
+     
+</body>
+</html>

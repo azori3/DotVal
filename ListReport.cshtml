@@ -1,0 +1,112 @@
+﻿@model IEnumerable<webpidev.Models.ReportModele>
+
+
+@{
+    ViewBag.Title = "ListReport";
+}
+
+<h2>Index</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Content/main.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/font-awesome.min.css")" rel="stylesheet" type="text/css" />
+    <title>ListReport</title>
+</head>
+<body>
+   
+    <h3 style="margin-left:1050px;"><a href="@Url.Action("Logout", "User", null)">Logout</a></h3>
+
+    <h2><a href='@string.Format("/User/Index")'>Liste des utilisateurs</a></h2>
+    <h3 style="text-align:left;float:left;color:brown"><a href='@string.Format("/User/Index")'>Volunteer</a></h3>
+    <h3 style="text-align:right;float:left; margin-left: 10px;"><a href='@string.Format("/User/getVol")'>Association</a></h3>
+    <h3 style="text-align:right;float:left; margin-left: 10px;"><a href='@string.Format("/User/ListReport")'>List Report</a></h3>
+    <h3 style="text-align:right;float:left; margin-left: 10px;"><a data-toggle="modal" data-target=".bd-example-modal-lg">Statistique</a></h3>
+
+    <hr style="clear:both;" />
+
+    <div style="height:100%; width:50%;    margin: auto; width:50% ">
+        
+        <div class="table-wrapper">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th>
+                        Content
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Sujet)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateBanneBegin)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateBanneEnd)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mail)
+                        </td>
+
+                        <td style=" max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;">
+                            @Html.DisplayFor(modelItem => item.Sujet)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateBanneBegin)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateBanneEnd)
+                        </td>
+                        <td>
+                            
+                            @Html.ActionLink("Details", "ReportDetails", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+
+
+    <br />
+    <br />
+
+    <br />
+
+    <br />
+
+    <br />
+    <footer id="footer">
+        <div class="inner">
+
+            <h3>Get in touch</h3>
+
+
+
+
+            <div class="copyright">
+                &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>
