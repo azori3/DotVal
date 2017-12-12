@@ -1,0 +1,245 @@
+﻿@using Domain.Entity
+@using MVCProject.Controllers;
+@model IEnumerable<Domain.Entity.topic>
+@{ Layout=null;
+    List<int> msgs = (List<int>)ViewBag.nbmsg;
+    List<favoris> fav = (List<favoris>)ViewBag.fav;
+    List<favoris> favoris = (List<favoris>)ViewBag.favoris;
+
+    }
+
+<!doctype html>
+<!--[if IE 9]> <html class="no-js ie9 fixed-layout" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js " lang="en"> <!--<![endif]-->
+
+<!-- Mirrored from www.similaricons.com/demos/helper/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Nov 2017 22:05:37 GMT -->
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Site Metas -->
+    <title>Helper - Support Desk Website Template</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="~/TempForum/forum/assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="~/TempForum/forum/assets/images/apple-touch-icon.png">
+    
+    <!-- Material Design fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/TempForum/forum/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="~/TempForum/forum/assets/css/bootstrap-material-design.css">
+    <link rel="stylesheet" href="~/TempForum/forum/assets/css/ripples.min.css">
+    <link rel="stylesheet" href="~/TempForum/forum/assets/css/font-awesome.min.css">
+    
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="~/TempForum/forum/style.css">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="~/TempForum/forum/assets/css/colors.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="">
+
+    <!-- LOADER -->
+    <div id="preloader">
+        <img class="preloader" src="~/TempForum/forum/assets/images/loader.gif" alt="">
+    </div><!-- end loader -->
+    <!-- END LOADER -->
+    
+    <div id="wrapper">
+        <section class="topbar-panel panel hidden-xs">
+            <span class="clickable btn btn-raised btn-info"><i class="fa fa-angle-up"></i></span>
+            <div class="panel-body">
+                <div class="topbar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <p>Due to <a href="#">holiday in our country</a>, support center panel will be closed for 2 days.</p>
+                            </div><!-- end left -->
+                        </div><!-- end row -->
+                    </div><!-- enc ontainer -->
+                </div><!-- end topbar -->
+            </div>
+        </section>
+        <header class="header">
+            <div class="container-fluid">
+               
+            </div><!-- end container -->
+        </header><!-- end header -->
+
+
+
+        <section class="section lb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="home-tab clearfix">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#topics_tab">Topics </a></li>
+                                <li style="margin-left:450px"><a href="@Url.Action("BillChart")"  title="">Statistique </a></li>
+                                <li><a href="@Url.Action("ExportPdf", "Topic")" href="single-knowlegde-base.html">Download PDF</a></li>
+
+
+                            </ul>
+                           @ViewBag.test
+                        @for (int i = 0; i < Model.LongCount(); i++)
+                        {
+
+
+
+
+                            <div class="tab-content">
+                                
+                                <div id="topics_tab" class="tab-pane fade in active">
+                                    <div class="topic-list blog-list">
+                                        <article class="well btn-group-sm clearfix">
+@{ int nbfavoris = 0;}
+                                            @foreach (var favori in fav)
+                                            {
+                                                if ((favori.idtopic == Model.ElementAt(i).idTopic) && (favori.iduser == TopicController.currentuser.id))
+                                                {
+                                                    nbfavoris = nbfavoris + 1;
+                                                }
+
+                                            }
+                                            @if (nbfavoris == 0)
+                                            {
+                                                <a href="@Url.Action("CreateFavoris", new { id = Model.ElementAt(i).idTopic })">
+                                                   <img  src="~/TempForum/forum/images/favempty.png" style="width:30px;height:30px;margin-left:750px"/>
+                                                </a>
+                                            }
+                                                    @if (nbfavoris != 0)
+                                                    {
+                                                        <img src="~/TempForum/forum/images/fav.png" style="width:30px;height:30px;margin-left:750px" />
+
+                                                    }
+                                           
+
+                                              
+                                           
+                                            <div class="topic-desc row-fluid clearfix">
+                                                <div class="col-sm-4">
+                                                    <img src="~/TempForum/forum/assets/images/uploads/blog_05.jpg" alt="" class="img-responsive img-thumbnail">
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <h4><a href="single-topic.html" title="">@Html.DisplayFor(modelItem => Model.ElementAt(i).sujet)
+</a></h4>
+                                                    <div class="blog-meta clearfix">
+                                                        <small>@Html.DisplayFor(modelItem => Model.ElementAt(i).dateCreation)
+</small>
+                                                        <small><a href="#">(@msgs.ElementAt(i))Comments</a></small>
+                                                      
+                                                    </div>
+                                                    <p> @Html.DisplayFor(modelItem => Model.ElementAt(i).contenu)</p>
+                                                  
+                                                      <a href="@Url.Action("Message", new { idTopic = Model.ElementAt(i).idTopic, sujet = Model.ElementAt(i).sujet })" class="readmore" title="">View the topic →</a>
+                                                   
+
+                                                </div>
+                                            </div>
+                                           
+                                            <!-- end tpic-desc -->
+
+                                            <footer class="topic-footer clearfix">
+                                                <div class="pull-left">
+                                                    <ul class="list-inline tags">
+                                                        
+
+                                                       
+                                                    </ul>
+                                                    <!-- end tags -->
+                                                </div>
+
+                                              
+                                              </footer><!-- end topic -->
+                                        </article><!-- end article well -->
+                                    </div><!-- end article-list -->
+                                </div><!-- end tab pane -->
+
+                                
+						   </div><!-- end tab-content -->
+    
+    }
+                            <div class="chat-wrapper">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading" id="chatcordion">
+                                        <a class="open-support btn btn-raised btn-info" data-toggle="collapse" data-parent="#chatcordion" href="#chatcordion1">
+                                            <i class="material-icons">chat</i>
+                                        </a>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="chatcordion1">
+                                        <span class="chat-logo"><i class="material-icons"></i> List des favoris</span>
+                                        <div class="panel-body">
+                                            <ul class="chat">
+                                                                                                @foreach (var item in favoris)
+                                                                                                {
+                                                                                                    if (item.iduser==TopicController.currentuser.id) 
+                                                                                                    {
+                                                                                                        
+                                                                                                   
+                                                                                                    <li class="left clearfix">
+                                                                                                       
+                                                                                                        <div class="chat-body clearfix">
+                                                                                                            <div class="chat-header">
+                                                                                                                <small class="pull-right text-muted"> 
+                                                                                                                   <a href="@Url.Action("DeleteFavoris", new { idTopic = item.topic.idTopic })">
+                                                                                                                      <img src="~/TempForum/forum/images/del.png" style="width:20px;height:20px" />
+                                                                                                                  </a>
+                                                                                                                </small>
+                                                                                                            </div>
+                                                                                                            <strong class="primary-font">@Html.DisplayFor(modelItem => item.topic.sujet)</strong>
+                                                                                                            <p>@Html.DisplayFor(modelItem => item.topic.contenu)</p>
+                                                                                                        </div>
+                                                                                                    </li>
+                                                                                                    }
+                                                                                                }
+                                              
+                                            </ul>
+                                        </div>
+                                     
+                                    </div><!-- end panel-collapse -->
+                                </div><!-- end panel -->
+                            </div>
+                         </div><!-- end home-tab -->
+                    </div><!-- end col -->
+             
+                  
+			   </div><!-- end row -->
+            </div><!-- end container -->
+        </section><!-- end section -->
+
+        
+
+        <!-- CHAT -->
+        
+        <!-- Modal -->
+        
+   </div>
+    <!-- end wrapper -->
+
+    <script src="~/TempForum/forum/assets/js/jquery.js"></script>
+    <script src="~/TempForum/forum/assets/js/bootstrap.js"></script>
+    <script src="~/TempForum/forum/assets/js/ripples.min.js"></script>
+    <script src="~/TempForum/forum/assets/js/material.min.js"></script>
+    <script src="~/TempForum/forum/assets/js/custom.js"></script>
+
+</body>
+
+<!-- Mirrored from www.similaricons.com/demos/helper/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Nov 2017 22:06:15 GMT -->
+</html>
+

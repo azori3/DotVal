@@ -1,0 +1,274 @@
+﻿@using Domain.Entity
+@using MVCProject.Controllers;
+@model IEnumerable<Domain.Entity.message>
+@{ Layout = null;
+    List<int> nblike = (List<int>)ViewBag.nblike;
+    List<likes> likes = (List<likes>)ViewBag.likes;
+
+}
+
+<!doctype html>
+<!--[if IE 9]> <html class="no-js ie9 fixed-layout" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js " lang="en">
+ <!--<![endif]-->
+<!-- Mirrored from www.similaricons.com/demos/helper/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Nov 2017 22:05:37 GMT -->
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Site Metas -->
+    <title>Helper - Support Desk Website Template</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="~/TempForum/forum/assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="~/TempForum/forum/assets/images/apple-touch-icon.png">
+
+    <!-- Material Design fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/TempForum/forum/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="~/TempForum/forum/assets/css/bootstrap-material-design.css">
+    <link rel="stylesheet" href="~/TempForum/forum/assets/css/ripples.min.css">
+    <link rel="stylesheet" href="~/TempForum/forum/assets/css/font-awesome.min.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="~/TempForum/forum/style.css">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="~/TempForum/forum/assets/css/colors.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+    <!-- LOADER -->
+    <div id="preloader">
+        <img class="preloader" src="~/TempForum/forum/assets/images/loader.gif" alt="">
+    </div><!-- end loader -->
+    <!-- END LOADER -->
+
+    <div id="wrapper">
+        <section class="topbar-panel panel hidden-xs">
+            <span class="clickable btn btn-raised btn-info"><i class="fa fa-angle-up"></i></span>
+            <div class="panel-body">
+                <div class="topbar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <p>Due to <a href="#">holiday in our country</a>, support center panel will be closed for 2 days.</p>
+                            </div><!-- end left -->
+                        </div><!-- end row -->
+                    </div><!-- enc ontainer -->
+                </div><!-- end topbar -->
+            </div>
+        </section>
+        <header class="header">
+            <div class="container-fluid">
+
+            </div><!-- end container -->
+        </header><!-- end header -->
+
+        <section class="section lb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="widget nopadding clearfix">
+                            <div class="panel panel-primary nopadding">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Add Message</h3>
+                                </div>
+                                <div class="panel-body">
+                               
+                                    @using (Html.BeginForm("Message", "Topic", FormMethod.Post))
+                                    {
+
+                                        <div class="form-group label-floating">
+                                            <label class="control-label" for="focusedInput2">Add Message</label>
+                                            <input class="form-control" id="message" name="message" type="text">
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <!-- inline style is just to demo custom css to put checkbox below input above -->
+
+                                            <div class="submit-button pull-right">
+                                                <input type="submit" class="btn btn-raised btn-info gr" value="add" />
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div><!-- end widget -->
+
+                        <div class="home-tab clearfix">
+                            <ul class="nav nav-tabs">
+
+                                <li><a class="active">@ViewBag.topic</a></li>
+                            </ul>
+                            @for (int i = 0; i < Model.LongCount(); i++)
+                            {
+
+                                <div class="tab-content">
+
+                                    <div id="forums_tab" class="tab-pane fade in active">
+                                        <aside class="topic-list blog-list forum-list">
+                                            <article class="well btn-group-sm clearfix" style="height: 260px;">
+                                                <div class="topic-desc row-fluid clearfix" style="height: 150px;">
+                                                    <div class="col-sm-2 text-center publisher-wrap">
+                                                        <img src="~/TempForum/forum/assets/images/uploads/team_01.jpg" alt="" class="avatar img-circle img-responsive">
+                                                        <h5>@Html.DisplayFor(modelItem => Model.ElementAt(i).users.firstName) </h5>
+                                                    </div>
+                                                    <div class="col-sm-10">
+                                                        <header class="topic-footer clearfix"></header><!-- end topic -->
+                                                        <h4> <a href="#">@Html.DisplayFor(modelItem => Model.ElementAt(i).contenu)</a></h4>
+                                                        <div class="blog-meta clearfix">
+                                                            <small>@Html.DisplayFor(modelItem => Model.ElementAt(i).datePost)</small>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- end tpic-desc -->
+                                                @{ int nblikes = 0;}
+                                                @foreach (var l in likes)
+                                                {
+                                                    if ((l.iduser == TopicController.currentuser.id) && (l.idmessage == Model.ElementAt(i).idMessage))
+                                                    {
+                                                        nblikes = nblikes + 1;
+                                                    }
+
+                                                }
+                                                <div class="topic-meta clearfix" style="height: 80px;">
+                                                    @if (nblikes == 0)
+                                                    {
+                                                        <div class="pull-left">
+
+                                                            <a class="btn btn-default btn-fab btn-fab-mini" href="@Url.Action("CreateLikes", new { id = Model.ElementAt(i).idMessage, idt = @ViewBag.idtopic, sujet = @ViewBag.topic })" data-toggle="tooltip" data-placement="bottom" title="Like">
+                                                                <i class="material-icons">thumb_up</i>
+                                                            </a>
+
+                                                            (@nblike.ElementAt(i)) likes
+                                                            <a class="btn btn-default btn-fab btn-fab-mini" style="background-color:#E91E63" " bottom" title="Un Like">
+                                                                <i class="material-icons">thumb_down</i>
+                                                            </a>
+
+
+                                                        </div><!-- end left -->
+                                                    }
+                                                    <div class="topic-meta clearfix">
+                                                        @if (nblikes != 0)
+                                                        {
+                                                            <div class="pull-left">
+
+                                                                <a class="btn btn-default btn-fab btn-fab-mini" style="background-color:#E91E63" data-toggle="tooltip" data-placement="bottom" title="Like">
+                                                                    <i class="material-icons">thumb_up</i>
+                                                                </a>
+
+                                                                (@nblike.ElementAt(i)) likes
+                                                                <a class="btn btn-default btn-fab btn-fab-mini" href="@Url.Action("DeleteLikes", new { idm = Model.ElementAt(i).idMessage, idt = @ViewBag.idtopic, sujet = @ViewBag.topic })" data-toggle="tooltip" data-placement="bottom" title="Un Like">
+                                                                    <i class="material-icons">thumb_down</i>
+                                                                </a>
+
+
+                                                            </div><!-- end left -->
+                                                        }
+
+
+                                                        <div class="pull-right">
+                                                            <div class="customshare">
+                                                                <div class="list">
+
+                                                                    <div class="btn btn-default btn-fab btn-fab-mini">
+                                                                        <i class="material-icons">share</i>
+                                                                        <ul class="list-inline">
+                                                                            <li><a href="#" class="tw"><i class="fa fa-twitter"></i></a></li>
+                                                                            <li><a href="#" class="fb"><i class="fa fa-facebook"></i></a></li>
+                                                                            <li><a href="#" class="gp"><i class="fa fa-google-plus"></i></a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- end right -->
+                                                    </div><!-- end topic-meta -->
+                                            </article>
+
+                                    </div><!-- end tab pane -->
+                                </div><!-- end tab-content -->
+                                                    }
+                        </div><!-- end home-tab -->
+                    </div><!-- end col -->
+
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section><!-- end section -->
+        <!-- CHAT -->
+        <!-- Modal -->
+        <div id="LoginModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Login Account</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="widget clearfix">
+                            <div class="panel panel-primary">
+                                <div class="panel-body">
+                                    <div class="login-buttons">
+                                        <a href="#" class="btn btn-raised btn-facebook btn-block"><i class="fa fa-facebook"></i> Login with Facebook</a>
+                                        <a href="#" class="btn btn-raised btn-twitter btn-block"><i class="fa fa-twitter"></i> Login with Twitter</a>
+                                        <a href="#" class="btn btn-raised btn-google-plus btn-block"><i class="fa fa-google-plus"></i> Login with Google+</a>
+                                    </div>
+                                    <form class="sidebar-login">
+                                        <input type="text" class="form-control" placeholder="Username">
+                                        <input type="text" class="form-control" placeholder="Password">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> &nbsp;&nbsp;Remember me
+                                            </label>
+                                        </div>
+                                        <button type="button" class="btn btn-raised btn-info gr">Login</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <small>No account? <a href="login.html">Register</a></small>
+                        </div><!-- end widget -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+    <script src="~/TempForum/forum/assets/js/jquery.js"></script>
+    <script src="~/TempForum/forum/assets/js/bootstrap.js"></script>
+    <script src="~/TempForum/forum/assets/js/ripples.min.js"></script>
+    <script src="~/TempForum/forum/assets/js/material.min.js"></script>
+    <script src="~/TempForum/forum/assets/js/custom.js"></script>
+
+    <!-- Mirrored from www.similaricons.com/demos/helper/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Nov 2017 22:06:15 GMT -->
+    <script>
+        function notifyMe() {
+            if (!("Notification" in window)) {
+                alert("This browser does not support desktop notification");
+            }
+            else if (Notification.permission === "granted") {
+
+                var notification = new Notification("EDIT WITH SUCCESS");
+            }
+            else if (Notification.permission !== "denied") {
+                Notification.requestPermission(function (permission) {
+                    if (permission === "granted") {
+                        var notification = new Notification("Hi there!");
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
